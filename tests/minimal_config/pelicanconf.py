@@ -1,5 +1,5 @@
 PATH = "content"
 SITENAME = "Best Title"
 STATIC_PATHS = []
-THEME = "themeless"
+THEME = "../../src/pelican/themes/themeless"
 TIMEZONE = "UTC"
