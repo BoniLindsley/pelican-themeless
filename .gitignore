@@ -1,0 +1,5 @@
+# Python
+*.egg-info/
+.mypy_cache/
+.tox/
+build/

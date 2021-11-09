@@ -1,0 +1,22 @@
+{# Requires variables `article_list` and `title` to be defined. #}
+{# Optionally, define both `current_page` and `paginator` object. #}
+{% extends "include/base.html" %}
+
+{% block body %}
+  <h1>{{ title }}</h1>
+  <ul>
+    {% for article in article_list %}
+      <li>
+        <a href="{{ SITEURL }}/{{ article.url }}">
+          {{ article.title }}
+        </a>
+        {% if article.locale_date %}
+          ({{ article.locale_date }})
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+  {% if paginator is defined and current_page is defined %}
+    {% include "include/paginator.html" %}
+  {% endif %}
+{% endblock %}
