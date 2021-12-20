@@ -4,18 +4,28 @@
 
 {% block body %}
   <h1>{{ title }}</h1>
-  <ul>
-    {% for article in article_list %}
-      <li>
-        <a href="{{ SITEURL }}/{{ article.url }}">
-          {{ article.title }}
-        </a>
-        {% if article.locale_date %}
-          ({{ article.locale_date }})
-        {% endif %}
-      </li>
-    {% endfor %}
-  </ul>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for article in article_list %}
+        <tr>
+          <td>
+            <a href="{{ SITEURL }}/{{ article.url }}">
+              {{ article.title }}
+            </a>
+          </td>
+          {% if article.locale_date %}
+            <td>{{ article.locale_date }}</td>
+          {% endif %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
   {% if paginator is defined and current_page is defined %}
     {% include "include/paginator.html" %}
   {% endif %}
