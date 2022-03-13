@@ -3,14 +3,10 @@
 {% block body %}
   <main>
     <h1>{{ SITENAME }}</h1>
-    {% for article in dates_page.object_list %}
-      {% include "include/article_summary.html" %}
-    {% endfor %}
+    {% with article = articles | first %}
+      {% include "include/article.html" %}
+    {% endwith %}
   </main>
-  {% set current_page = dates_page %}
-  {% set paginator = dates_paginator %}
-  {% include "include/paginator.html" %}
-  <hr>
   <nav>
     <ul>
       {% if "archives" in DIRECT_TEMPLATES and articles %}
